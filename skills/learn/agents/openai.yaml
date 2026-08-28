@@ -1,0 +1,8 @@
+interface:
+  display_name: "Learn"
+  short_description: "通过知识边界诊断、依赖图、讲解与测验真正学会一个主题"
+  brand_color: "#6D5EF3"
+  default_prompt: "使用 $learn，通过诊断、知识依赖图和自适应测验帮助我真正理解一个主题。"
+
+policy:
+  allow_implicit_invocation: true

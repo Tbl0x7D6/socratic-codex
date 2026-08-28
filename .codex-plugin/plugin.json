@@ -1,0 +1,28 @@
+{
+  "name": "learn-codex",
+  "version": "0.1.0+codex.20260828154815",
+  "description": "Adaptive, foundation-first learning workflows for Codex.",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Learn",
+    "shortDescription": "Adaptive teaching with diagnosis, dependency maps, and quizzes.",
+    "longDescription": "Turn a Codex task into a guided learning session. Learn diagnoses prior knowledge, builds a small dependency path, teaches from stable foundations, checks understanding with adaptive quizzes, uses native research and visualization capabilities, and can keep an opt-in Markdown learning log through Codex hooks.",
+    "developerName": "Local developer",
+    "category": "Education",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use $learn to teach me a topic from first principles.",
+      "Use $learn to diagnose what I know about neural networks.",
+      "Use $learn for a deep guided lesson and save Markdown notes."
+    ],
+    "brandColor": "#6D5EF3",
+    "composerIcon": "./assets/logo.svg",
+    "logo": "./assets/logo.svg"
+  }
+}

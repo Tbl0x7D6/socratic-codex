@@ -1,0 +1,27 @@
+{
+  "description": "Mirror explicitly enabled learning sessions to Markdown without affecting ordinary Codex tasks.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${PLUGIN_ROOT}/hooks/learning_log.py\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${PLUGIN_ROOT}/hooks/learning_log.py\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  }
+}
