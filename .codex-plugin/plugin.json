@@ -1,15 +1,15 @@
 {
-  "name": "learn-codex",
-  "version": "0.1.0+codex.20260828154815",
+  "name": "socratic-codex",
+  "version": "0.1.0+codex.20260906131427",
   "description": "Adaptive, foundation-first learning workflows for Codex.",
   "author": {
     "name": "Local developer"
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "Learn",
-    "shortDescription": "Adaptive teaching with diagnosis, dependency maps, and quizzes.",
-    "longDescription": "Turn a Codex task into a guided learning session. Learn diagnoses prior knowledge, builds a small dependency path, teaches from stable foundations, checks understanding with adaptive quizzes, uses native research and visualization capabilities, and can keep an opt-in Markdown learning log through Codex hooks.",
+    "displayName": "Socratic Codex",
+    "shortDescription": "Adaptive teaching with diagnosis, dependency maps, and mixed-format checks.",
+    "longDescription": "Turn a Codex task into a guided learning session. Socratic Codex diagnoses prior knowledge, builds a small dependency path, teaches from stable foundations, checks understanding with varied question formats and externally randomized answer positions, uses native research and visualization capabilities, and can keep an opt-in Markdown learning log through Codex hooks.",
     "developerName": "Local developer",
     "category": "Education",
     "capabilities": [

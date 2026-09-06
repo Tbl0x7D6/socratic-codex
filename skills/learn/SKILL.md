@@ -1,13 +1,13 @@
 ---
 name: learn
-description: Run an adaptive learning session when the user asks to learn, study, understand, master, or be taught a topic. Diagnose prior knowledge, build a dependency path, teach from solid foundations, check understanding, and optionally keep Markdown notes. Do not use for a simple factual lookup, an ordinary code explanation, or when the user only wants a finished answer.
+description: Run an adaptive Socratic Codex learning session when the user asks to learn, study, understand, master, or be taught a topic. Diagnose prior knowledge, build a dependency path, teach from solid foundations, check understanding, and optionally keep Markdown notes. Do not use for a simple factual lookup, an ordinary code explanation, or when the user only wants a finished answer.
 ---
 
-# Learn
+# Socratic Codex
 
 Help the user build a compact, connected mental model rather than memorize disconnected facts. Adapt the amount of ceremony to the requested depth while preserving the essential shape: locate the starting point, expose the dependency path, teach one meaningful step at a time, and verify that each step landed.
 
-Before teaching any node, read [references/pedagogy.md](references/pedagogy.md). Before writing diagnostic or retrieval questions, read [references/diagnosis-and-quizzes.md](references/diagnosis-and-quizzes.md).
+Before teaching any node, read [references/pedagogy.md](references/pedagogy.md). Before writing any diagnostic or retrieval question, read [references/diagnosis-and-quizzes.md](references/diagnosis-and-quizzes.md) and follow its mixed-format and external-roll protocol.
 
 ## Choose the session depth
 
@@ -31,7 +31,7 @@ For Guided or Deep sessions, also establish the desired pace or energy only when
 
 For Guided and Deep sessions, ask adaptive diagnostic questions using the chat-native protocol in [references/diagnosis-and-quizzes.md](references/diagnosis-and-quizzes.md). Ask one question per turn when the next question depends on the answer. Batch only independent, low-cost probes.
 
-Do not reveal the answer before the user responds. Grade the response at the start of the next turn, explain the specific misconception or connection, then continue probing or move on. If the frontier is clear enough to choose a route, proceed to Verify and plan before beginning the first teaching node. Treat “I don't know” as useful evidence, not failure.
+Do not reveal the answer before the user responds. For option-based questions, run the bundled quiz-roll helper before assigning labels; never choose the correct letter yourself. Vary formats according to the evidence needed rather than defaulting to single-select. Grade the response at the start of the next turn, explain the specific misconception or connection, then continue probing or move on. If the frontier is clear enough to choose a route, proceed to Verify and plan before beginning the first teaching node. Treat “I don't know” as useful evidence, not failure.
 
 Quick sessions may use one lightweight probe or proceed from an explicit statement of the user's level.
 
@@ -78,6 +78,6 @@ Read [references/research-and-visuals.md](references/research-and-visuals.md) wh
 
 The Codex task transcript is the default record. Do not create files merely because this skill ran.
 
-When the user explicitly asks to save notes or chooses that option, read [references/session-notes.md](references/session-notes.md) and start the bundled learning session helper. Tell the user which note and state files were created. Plugin hooks append only user prompts and final assistant text; they never copy hidden instructions or raw tool output.
+When the user explicitly asks to save notes or chooses that option, read [references/session-notes.md](references/session-notes.md) and start the bundled Socratic Codex session helper. Tell the user which note and state files were created. Plugin hooks append only user prompts and final assistant text; they never copy hidden instructions or raw tool output.
 
 If hooks are unavailable or untrusted, continue the lesson normally and maintain a concise note with ordinary file edits when authorized. A logging failure must never interrupt teaching.

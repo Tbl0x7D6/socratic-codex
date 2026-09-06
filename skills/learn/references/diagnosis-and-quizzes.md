@@ -19,12 +19,57 @@ Use a preference question only when no answer is objectively correct, such as th
 
 Use a graded question when there is a definite answer, including Socratic discovery prompts. Never hide a factual quiz inside a “preference” question.
 
+## Choose a question format
+
+Match the format to the evidence needed. Prefer a response the learner must generate when that is affordable; recognition alone is weak evidence of mastery.
+
+- **Single-select:** discriminate among nearby models or locate a misconception efficiently.
+- **Multi-select:** identify an exact set of conditions, properties, causes, or consequences.
+- **Short answer or fill-in:** retrieve a term, invariant, relationship, or intermediate result without cues.
+- **Prediction:** commit to an output, direction, or state change before seeing the explanation.
+- **Ordering:** arrange causal, procedural, temporal, or derivation steps.
+- **Matching or classification:** map examples to concepts, mechanisms, or categories.
+- **Error diagnosis and repair:** find the faulty step and correct it.
+- **Explain-back:** justify a dependency or teach the node in the learner's own words.
+- **Worked application:** calculate, derive, code, debug, or apply the node to a fresh case.
+- **Transfer:** solve a structurally similar problem whose surface details differ from the lesson.
+
+True/false is acceptable only when the learner must also repair a false statement or justify a true one. Otherwise it provides too little diagnostic information.
+
+Do not use single-select twice in succession when another format can test the same dependency at comparable cost. After a recognition check, use a generative, application, or transfer check before treating the node as mastered. In a sufficiently long Guided or Deep session, sample at least three formats; do not prolong a lesson merely to satisfy that variety.
+
+When two or more formats are equally suitable, the format itself may be selected outside the model. First list only pedagogically valid candidates, then run:
+
+```bash
+python3 <plugin-root>/scripts/quiz_roll.py choose prediction short-answer ordering
+```
+
+Use the returned `selected` format. Never put an unsuitable format into the pool merely for novelty.
+
+## Roll answer positions before rendering choices
+
+For every single-select or multi-select question, determine the semantic answer and distractors before assigning letters. Then use the bundled helper to roll the answer position immediately before rendering the question. Resolve `<plugin-root>` as two directories above this skill directory.
+
+Single-select with four options:
+
+```bash
+python3 <plugin-root>/scripts/quiz_roll.py positions --options 4 --correct 1
+```
+
+Multi-select with five options and two correct claims:
+
+```bash
+python3 <plugin-root>/scripts/quiz_roll.py positions --options 5 --correct 2
+```
+
+Place the correct claim or claims at exactly the returned `correct_positions`; fill every other position with a distractor. Do not manually choose a favored letter, move an answer after the roll, or expose the roll output or answer key before the learner responds. If the command cannot be run, do not pretend the position is random: switch to a non-option format.
+
 ## Chat-native graded question
 
 Codex may not have a blocking quiz popup on every surface. Use the conversation itself:
 
 ```text
-Question
+Single-select
 
 A. Bare claim
 B. Parallel bare claim
@@ -39,13 +84,15 @@ Then end the turn and wait. Do not include the correct answer, explanation, asym
 
 At the beginning of the next turn:
 
-1. Show `✓` for correct, `✗` for incorrect, or `—` for “I don't know.”
+1. Show `✓` for correct, `✗` for incorrect, `△` for meaningfully partial, or `—` for “I don't know.”
 2. State the correct claim.
 3. Explain the dependency that makes it correct.
 4. Use the chosen distractor or note as evidence about the learner's current model.
 5. Continue with the next adaptive probe or teaching node.
 
-For multi-select questions, say explicitly that the answer is an exact set and allow `I don't know` as a separate response.
+State a compact response contract for every format: for example, one letter; an exact letter set such as `A,C`; an order such as `C→A→B`; mappings such as `1-B, 2-C`; or at most two sentences. Always allow `I don't know` as a separate response.
+
+Before asking an open-response question, privately establish the minimum correct elements and which omissions count as partial rather than incorrect. Do not reveal that rubric. Grade the meaning, not exact wording, and call out ambiguity in the question instead of penalizing the learner for it.
 
 ## Construct useful options
 
@@ -59,7 +106,7 @@ Build answer choices by construction rather than polishing them afterward:
 
 Put reasoning in the post-answer explanation, never in one privileged option. Avoid “all of the above” unless order is genuinely part of the concept.
 
-## Vary the checks
+## Vary the cognitive work
 
 Use the cheapest check that can expose the relevant dependency:
 

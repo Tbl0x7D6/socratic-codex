@@ -12,7 +12,7 @@ python3 <plugin-root>/scripts/learning_session.py start --topic "<topic>" --cwd 
 
 The helper creates:
 
-- `<cwd>/.learn-codex/session.json`, a small active-session marker;
+- `<cwd>/.socratic-codex/session.json`, a small active-session marker;
 - `<cwd>/learning-notes/<topic>-<timestamp>.md`, the Markdown note.
 
 Pass `--log <path>` only when the user requested a particular note file. Never use `--force` unless the user explicitly wants to replace an active marker. Report both created paths.

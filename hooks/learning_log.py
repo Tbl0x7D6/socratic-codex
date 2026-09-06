@@ -79,7 +79,7 @@ def main() -> int:
         if isinstance(payload, dict):
             handle(payload)
     except Exception as exc:  # Logging must never block the Codex turn.
-        print(f"learn-codex logging warning: {exc}", file=sys.stderr)
+        print(f"socratic-codex logging warning: {exc}", file=sys.stderr)
     hook_response()
     return 0
 

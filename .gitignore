@@ -3,5 +3,5 @@ __pycache__/
 .DS_Store
 
 # Per-project runtime state and generated learning notes are user-owned.
-.learn-codex/
+.socratic-codex/
 learning-notes/

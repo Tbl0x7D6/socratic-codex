@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 
-STATE_DIRNAME = ".learn-codex"
+STATE_DIRNAME = ".socratic-codex"
 STATE_FILENAME = "session.json"
 NOTES_DIRNAME = "learning-notes"
 STATE_VERSION = 1
